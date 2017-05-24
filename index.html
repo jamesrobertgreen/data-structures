@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="dataStructureApp">
+
+<head>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+    <link rel="stylesheet" href="css/app.css">
+    <script src="scripts/script.js"></script>
+</head>
+
+<body ng-controller="mainController">
+    <h1>list cases</h1>
+    <ul ng-repeat="case in listCases.cases">
+        <ul ng-repeat="entity in case.entities">
+            <ul ng-repeat="product in entity.products">
+                <li>{{case.caseID}} {{entity.entityID}} {{product.productDescription}} {{case.caseCreationDate}} {{case.caseOwner}} {{case.caseID}} {{case.action}}</li>
+            </ul>
+        </ul>
+    </ul>
+</body>
+
+</html>
