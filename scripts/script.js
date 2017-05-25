@@ -99,6 +99,14 @@
 	                , "conflicts": [{"caseId":"009"},{"caseId":"010"},{"caseId":"011"}]
 	            }]
 	    };
+        
+        $scope.entityDetails = {
+            "entityId":"001",
+            "entityName":"Crocs footwear UK LTD",
+            "entityAddress":"10 King Street"
+        };
+        
+        
 	    // if we can have more than one entity on an individual case... then I think the products should be under the case/entities, then there would be no need to
 	    // have an association to link entities to products, it would just be:
 	});
