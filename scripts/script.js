@@ -86,27 +86,63 @@
 	        "entities": [{
 	                "entityId": "123456"
 	                , "entityName": "Crocs Footwear UK LTD"
-	                , "conflicts": [{"caseId":"005"},{"caseId":"006"}]
+	                , "conflicts": [{
+	                    "caseId": "005"
+	                        }, {
+	                    "caseId": "006"
+	                        }]
 	            }
 	            , {
 	                "entityId": "234567"
 	                , "entityName": "Crocs Footwear France S.A"
-	                , "conflicts": [{"caseId":"007"},{"caseId":"008"}]
+	                , "conflicts": [{
+	                    "caseId": "007"
+	                        }, {
+	                    "caseId": "008"
+	                        }]
 	            }
 	            , {
 	                "entityId": "456789"
 	                , "entityName": "Crocs Fashion Spain S.A"
-	                , "conflicts": [{"caseId":"009"},{"caseId":"010"},{"caseId":"011"}]
+	                , "conflicts": [{
+	                    "caseId": "009"
+	                        }, {
+	                    "caseId": "010"
+	                        }, {
+	                    "caseId": "011"
+	                        }]
 	            }]
 	    };
-        
-        $scope.entityDetails = {
-            "entityId":"001",
-            "entityName":"Crocs footwear UK LTD",
-            "entityAddress":"10 King Street"
-        };
-        
-        
-	    // if we can have more than one entity on an individual case... then I think the products should be under the case/entities, then there would be no need to
-	    // have an association to link entities to products, it would just be:
+	    $scope.entityDetails = {
+	        "entityId": "001"
+	        , "entityName": "Crocs footwear UK LTD"
+	        , "entityAddress": "10 King Street"
+	    };
+	    $scope.gdocsHistory = {
+	        "cases": [{
+	                "caseId": "001"
+	                , "service": "Account opening"
+	                , "country": "Argentina"
+	                , "date": "13 Jun '16"
+	                , "outputPackRef": "1234567"
+	                , "documents": [{
+	                    "documentName": "MSA"
+	                        }, {
+	                    "documentName": "RAF"
+	                        }]
+	                    }
+	                    , {
+	                "caseId": "002"
+	                , "service": " E-channel"
+	                , "country": "Argentina"
+	                , "date": "13 Jun '16"
+	                , "outputPackRef": "1234567"
+	                , "documents": [{
+	                    "documentName": "doc1"
+	                        }, {
+	                    "documentName": "doc2"
+	                        }]
+	                    }
+	                ]
+	    }
 	});
