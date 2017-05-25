@@ -4,50 +4,89 @@
 	routeApp.controller('mainController', function ($scope) {
 
 	    $scope.listCases = {
-	        "cases": [
-	            {
-	                "caseID": "002",
-	                "caseStatus": "Initial Request Incomplete",
-                    "caseOwner":"Nawaf Hasan",
-                    "caseCreationDate": "20/05/17",
-                    "action":"Mark as Signed",
-	                "entities": [{
-	                        "entityName": "Reebok UK",
-	                        "entityID": "890123",
-	                        "products": [{
-	                                "productID": "987",
-	                                "productDescription": "Account (UK)"
-	                            },
-	                            {
-	                                "productID": "655",
-	                                "productDescription": "Echannel (UK)"
-	                            },
-	                            {
-	                                "productID": "234",
-	                                "productDescription": "GLS Service"
-	                            }
-                                    ]
-                    }, {
-	                        "entityName": "Reebok France",
-	                        "entityID": "901234",
-	                        "products": [{
-	                                "productID": "987",
-	                                "productDescription": "Account (UK)"
-	                            },
-	                            {
-	                                "productID": "655",
-	                                "productDescription": "GLS Services"
-	                            }
-                                    ]
-                    }
-
-
-                                ]
-
-	            }]
+	        "cases": [{
+	            "caseId": "001",
+	            "caseStatus": "Initial Request Incomplete",
+	            "caseOwner": "Nawaf Hasan",
+	            "caseCreationDate": "20/05/17",
+	            "action": "Mark as Signed",
+	            "entities": [{
+	                "entityName": "Reebok UK",
+	                "entityId": "890123"
+                }],
+	            "products": [{
+	                "productId": "987",
+	                "productDescription": "Account (UK)",
+	                "owningEntityId": "890123"
+                            }, {
+	                "productId": "655",
+	                "productDescription": "Echannel (UK)",
+	                "owningEntityId": "890123"
+                }],
+	            "associatedCases": [{
+	                    "associationType": "child",
+	                    "caseId": "002"
+	           }]
+	       }]
 	    };
         
-        
-        
-        
+
+	    // if we have the above, then it will be fine *as long as we  only receive one entity per case*....as otherwise I will have to go through and check who is the
+	    // owning entity in the list of products to match them up on the UI.
+
+	    // some other considerations if we go down this route:
+	    // what happens if the case that is the "parent" is removed:
+	    //1) remove the relationship to any children
+	    //2) assign a new parent
+	    //3) set all children to have the new child association
+	    // what if an entity is removed after adding products on a case:
+	    // do we remove the accounts/e-channels that are associated with that entity?
+
+
+	    $scope.listCases2 = {
+	        "cases": [{
+	            "caseId": "001",
+	            "caseStatus": "Initial Request Incomplete",
+	            "caseOwner": "Nawaf Hasan",
+	            "caseCreationDate": "20/05/17",
+	            "action": "Mark as Signed",
+	            "entities": [{
+	                "entityName": "Reebok UK",
+	                "entityId": "890123",
+	                "products": [{
+	                    "productId": "987",
+	                    "productDescription": "Account (UK)"
+                            }, {
+	                    "productId": "655",
+	                    "productDescription": "Echannel (UK)"
+                    }]
+                    }, {
+	                "entityName": "Reebok FR",
+	                "entityId": "890168",
+	                "products": [{
+	                    "productId": "567",
+	                    "productDescription": "Account (UK)"
+                            }, {
+	                    "productId": "435",
+	                    "productDescription": "Echannel (UK)"
+                    }]
+                }]
+	       }]
+	    };
+
+
+
+
+
+	    // if we can have more than one entity on an individual case... then I think the products should be under the case/entities, then there would be no need to
+	    // have an association to link entities to products, it would just be:
+
+
+
+
+
+
+
+
+
 	});

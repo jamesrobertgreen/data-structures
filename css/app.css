@@ -5,3 +5,7 @@ a:focus, a:hover{
 body{
     padding-top: 20px;
 }
+
+table, th, td {
+   border: 1px solid black;
+}

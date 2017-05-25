@@ -9,13 +9,31 @@
 
 <body ng-controller="mainController">
     <h1>list cases</h1>
-    <ul ng-repeat="case in listCases.cases">
-        <ul ng-repeat="entity in case.entities">
-            <ul ng-repeat="product in entity.products">
-                <li>{{case.caseID}} {{entity.entityID}} {{product.productDescription}} {{case.caseCreationDate}} {{case.caseOwner}} {{case.caseID}} {{case.action}}</li>
-            </ul>
-        </ul>
-    </ul>
+    <table>
+        <tr ng-repeat="case in listCases.cases">
+            {{case.caseID}}
+            <td>
+                <ul ng-repeat="product in case.products">
+                    {{case.entities[0].entityName}} {{product.productDescription}} {{case.associatedCases[0].caseId}}
+                </ul>
+            </td>
+        </tr>
+    </table>
 </body>
+
+
+<table>
+    <tr><td>001</td>
+        <td>a</td>
+        <td>
+            <ul>
+                <li>x</li>
+                <li>y</li>
+                <li>z</li>
+            </ul>
+        </td>
+        <td>c</td>
+    </tr>
+</table>
 
 </html>
