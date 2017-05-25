@@ -11,29 +11,15 @@
     <h1>list cases</h1>
     <table>
         <tr ng-repeat="case in listCases.cases">
-            {{case.caseID}}
+            <td>{{case.caseId}}</td><td>{{case.entities[0].entityName}}</td>
             <td>
                 <ul ng-repeat="product in case.products">
-                    {{case.entities[0].entityName}} {{product.productDescription}} {{case.associatedCases[0].caseId}}
+                    <li>{{product.productDescription}}</li>
                 </ul>
             </td>
         </tr>
     </table>
 </body>
 
-
-<table>
-    <tr><td>001</td>
-        <td>a</td>
-        <td>
-            <ul>
-                <li>x</li>
-                <li>y</li>
-                <li>z</li>
-            </ul>
-        </td>
-        <td>c</td>
-    </tr>
-</table>
 
 </html>
