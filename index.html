@@ -8,10 +8,17 @@
 </head>
 
 <body ng-controller="mainController">
-    <h1>list cases</h1>
+    <h1>CREATE CASE</h1>
+    <h2>CI Logs in and is taken to the case list</h2>
+    <h4>list cases component: GET /cases </h4>
+    <h4>Parameters: none </h4>
+    <h4>Returns: JSON array of cases</h4>
+    <p>Notes: Access to cases and customer/ci differences determined by the API/auth token </p>
+    <h4>Example:</h4>
     <table>
         <tr ng-repeat="case in listCases.cases">
-            <td>{{case.caseId}}</td><td>{{case.entities[0].entityName}}</td>
+            <td>{{case.caseId}}</td>
+            <td>{{case.entities[0].entityName}}</td>
             <td>
                 <ul ng-repeat="product in case.products">
                     <li>{{product.productDescription}}</li>
@@ -19,7 +26,51 @@
             </td>
         </tr>
     </table>
+    <hr>
+    <br>
+    <h2>CI selects create case</h2>
+    <h4>Create Case Button - POST /cases </h4>
+    <h4>Parameters: none </h4>
+    <h4>Return: Case id for newly created case</h4>
+    <h4>Example:</h4>
+    <p>{{createCase.caseId}} </p>
+    <p>Notes: We will have to use this received case Id to redirect to the create case page</p>
+    <hr>
+    <br>
+    <h1>CASE DETAILS - Entities</h1>
+    <h2>CI is brought to the entities section</h2>
+    <h4>searchEntities component - GET /entities</h4>
+    <h4>Parameters: search_criteria </h4>
+    <h4>Return: JSON array of entity objects</h4>
+    <h4>Example:</h4>
+    <ul ng-repeat="entity in searchEntities.entities">
+        <li>{{entity.entityId}} {{entity.entityName}}</li>
+    </ul>
+    <hr>
+    <br>
+    <h2>CI selects entites from the search, and presses add selected. It gets added to the case.
+    I think we need to trigger the other component to retrieve the latest case info?</h2>
+    <h4>searchEntities -> add selected   - POST /entities/associate</h4>
+    <h4>Parameters: List of entity Ids </h4>
+    <h4>Return: {} </h4>
+    <hr>
+    <br>
+    <h2>There is a list of entities on this page, these will need be retrieved when entering the page and updated if an entity is deleted or if an entity is added.</h2>
+    <h4>entityList component - GET /{caseId}/conflicts</h4>
+    <h4>Parameters: none </h4>
+    <h4>Return: JSON array of entity objects</h4>
+    <h4>Example:</h4>
+    <table>
+        <tr ng-repeat="entity in entityList.entities">
+            <td>{{entity.entityId}}</td>
+            <td>{{entity.entityName}}</td>
+            <td>
+                <ul ng-repeat="conflict in entity.conflicts">
+                    <li>{{conflict.caseId}}</li>
+                </ul>
+            </td>
+        </tr>
+    </table>
 </body>
-
 
 </html>
