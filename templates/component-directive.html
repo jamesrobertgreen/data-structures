@@ -4,10 +4,11 @@
     <img ng-src="{{component.image}}">
     <h4>Endpoint: {{component.endpoint}}</h4>
     <h4>Parameters: {{component.parameters}}</h4>
+    <h4>Parameters Example:</h4>
+    <pre>{{component.parametersExample}}</pre>
     <h4>Returns: {{component.returns}}</h4>
     <h4>Example:</h4>
-    <pre>{{component.returnsExample}}</pre> 
-    {{component.returnJSON}}
-    <div ng-bind-html="component.returnsOtherExample"></div>
-    <h4>Notes:{{component.notes}}</h4>
+    <pre>{{component.returnsExample}}</pre> {{component.returnJSON}}
+    <h4>Notes:</h4>
+    <p>{{component.notes}}</p>
 </div>

@@ -9,20 +9,10 @@
 </head>
 
 <body ng-controller="mainController">
-    <component details="listCaseDetails"> </component>
-
-
     <h1>Page: Case List</h1>
     <br>
     <hr>
-    <h2>Component Name: listCases</h2>
-    <h2>Description: CI/Customer Logs in and is presented with a list of cases they have access to</h2>
-    <img src="images/listCases.png">
-    <h4>Endpoint: GET /cases </h4>
-    <h4>Parameters: none </h4>
-    <h4>Returns: JSON array of cases</h4>
-    <h4>Example:</h4>
-    <pre>{{displayJSON(listCases)}}</pre>
+    <component details="listCase_info"> </component>
     <table>
         <tr ng-repeat="case in listCases.cases">
             <td>{{case.caseId}}</td>
@@ -34,23 +24,9 @@
             </td>
         </tr>
     </table>
-    <h4>Notes:</h4>
-    <p>Access to cases and customer/ci differences determined by the API/auth token </p>
-    <p>Associated child cases will be sent along with the parent.</p>
-    <p>Case list id will need to be passed to the create case page so that we can resume cases started previously.</p>
-    <hr>
-    <br>
-    <h2>Component Name: newCase</h2>
-    <h2>Description: CI presses new case button</h2>
-    <img src="images/newCase.png">
-    <h4>Endpoint: POST /cases </h4>
-    <h4>Parameters: none </h4>
-    <h4>Return: Case id for newly created case</h4>
-    <h4>Example:</h4>
-    <p>{{displayJSON(createCase)}} </p>
-    <p>{{createCase.caseId}} </p>
-    <p>Notes: We will have to use this received case Id to redirect to the create case page</p>
-    <p>The id will also be passed in a similar way from the case list component.</p>
+
+    <component details="createCase_info"> </component>
+
     <hr>
     <br>
     <h1>Page: Create Case</h1>
@@ -59,40 +35,16 @@
     <br>
     <p class="todo">We will need to get the case details on page init, as we might be resuming a case, i.e. selecting an existing case from the case list.</p>
     <p class="todo">The search entities component should not be worked on yet it is low priority.</p>
-    <h2>Component Name: searchEntities</h2>
-    <h2>Description: CI is brought to the entities section</h2>
-    <img src="images/searchEntities.png">
-    <h4>Endpoint: GET /entities</h4>
-    <h4>Parameters: search_criteria TBC</h4>
-    <h4>Return: JSON array of entity objects</h4>
-    <h4>Example:</h4>
-    <pre>{{displayJSON(searchEntities)}}</pre>
+
+
+    <component details="searchEntities_info"> </component>
     <ul ng-repeat="entity in searchEntities.entities">
         <li>{{entity.entityId}} {{entity.entityName}}</li>
     </ul>
-    <h2>Component Name: searchEntities_addSelected</h2>
-    <h2>Description: The CI selects to add the entities selected from their search</h2>
-    <img src="images/searchEntities_addSelected.png">
-    <h4>Endpoint: POST /{caseId}/entities/associate</h4>
-    <h4>Parameters: list of caseids to associate with case.</h4>
-    <h4>Example:</h4>
-    <pre>{{displayJSON(searchEntities_addSelected)}}</pre>
-    <h4>Return:none</h4>
-    <h4>Example:{}</h4>
-    <h2>Component Name: searchEntities_createEntity</h2>
-    <h2>Description: The CI selects create entity as the entity is not in the list</h2>
-    <img src="images/searchEntities_createEntity.png">
-    <h4>Endpoint: This will need to open a new modal, pre-filled with the text entered on the search as the new entity name</h4>
-    <h4>Parameters: TBC. This will be decided at a later date as it doesn't require the experience API.</h4>
-    <hr>
-    <br>
-    <h2>Component Name: entityConflicts</h2>
-    <h2>List of entities that will be retrieved when entering the page (for resuming) and updated if an entity is deleted or if an entity is added.</h2>
-    <h4>GET /{caseId}/conflicts</h4>
-    <h4>Parameters: none </h4>
-    <h4>Return: JSON array of entity objects</h4>
-    <h4>Example:</h4>
-    <pre>{{displayJSON(entityList)}}</pre>
+
+    <component details="searchEntities_addSelected_info"></component>
+    <component details="searchEntities_createEntity_info"></component>
+    <component details="entityList_info"></component>
     <table>
         <tr ng-repeat="entity in entityList.entities">
             <td>{{entity.entityId}}</td>
@@ -104,42 +56,16 @@
             </td>
         </tr>
     </table>
+    <component details="entityListDelete_info"></component>
+    <component details="createEntity_info"></component>
+
     <hr>
     <br>
-    <h2>The list of entities has a delete icon. It will need to update the list too</h2>
-    <h4>entityList component remove - DELETE /cases/{caseId}/entities/{entityId}</h4>
-    <h4>Parameters: none </h4>
-    <h4>Return: {}</h4>
+    <h1>Page: Create Case</h1>
+    <h1>Sub page: Accounts</h1>
     <hr>
     <br>
-    <h2>Component Name: createEntity</h2>
-    <h2>Description: The CI selected to create a new entity and is presented with a modal containing the entity form</h2>
-    <img src="images/createEntity.png">
-    <h4>Endpoint: POST /{caseId}/entities</h4>
-    <h4>Parameters: details of the entity to add</h4>
-    <h4>Example:</h4>
-    <pre>{{displayJSON(createEntity_input)}}</pre>
-    <h4>Return: entityId that was added (might not be needed but could be handy)</h4>
-    <h4>{{displayJSON(creatEntity_output)}}</h4>
-    <h4>Example:{}</h4>
-    <p class="todo"> The GRID field seems to be new i.e. I couldn't see it in the example output/input pack XML that Alex shared with us. We will have to be careful of the names we use for these fields, as they need to map to the names used on the output pack.</p>
-    <hr>
-    <br>
-
-
-
-
-
-
-
-    <h2>Component Name: listAccounts</h2>
-    <h2>Description: The CI added an account to the case, it is added to this list. Any changes to the accounts for a case e.g. delete are also reflected in this list</h2>
-    <img src="images/listAccounts.png">
-    <h4>Endpoint: GET /cases/{caseID}/products</h4>
-    <h4>Parameters: type = "accounts"</h4>
-    <h4>Return: list of accounts associated with the case</h4>
-    <h4>Example:</h4>
-    <pre>{{displayJSON(listAccounts)}}</pre>
+    <component details="listAccounts_info"></component>
     <table>
         <tr ng-repeat="account in listAccounts.accounts">
             <td>{{account.accountNo}}</td>
@@ -151,31 +77,52 @@
             <td>(+)Add new account</td>
         </tr>
     </table>
-    <p>Notes:</p>
+
+    <component details="listAccountsDelete_info"></component>
+    <component details="createAccount_info"></component>
+
+
+
     <hr>
     <br>
-    <h2>The list of accounts has a delete icon. It will need to update the list too</h2>
-    <h4>accountList component remove - DELETE /cases/{caseID}/products/{productId}</h4>
-    <h4>Parameters: none </h4>
-    <h4>Return: {}</h4>
     <h1>Page: Create Case</h1>
-    <h1>Sub page: Accounts</h1>
+    <h1>Sub page: EChannels</h1>
     <hr>
     <br>
-    <h2>Component Name: createAccount</h2>
-    <h2>Description: The CI selected to create a new account and is presented with a modal containing the account form</h2>
-    <img src="images/createAccount.png">
-    <h4>Endpoint: POST /cases/{caseID}/products/{entityId}</h4>
-    <h4>Parameters: type="account" + details of the account to add</h4>
-    <h4>Example:</h4>
-    <pre>{{displayJSON(createAccount_input)}}</pre>
-    <h4>Return: accountId that was added (might not be needed but could be handy)</h4>
-    <h4>Example:</h4>
-    <h4>{{displayJSON(creatAccount_output)}}</h4>
-    <p>Notes:</p>
-    <p class="todo">I am not certain about the names of the fields for this, we will need to decide make sure these are consistent with what is on the output pack as we don't want to have to map new field names to the existing output pack.</p>
+    <component details="echannels_info"></component>
+    <table>
+        <tr ng-repeat="echannel in listEchannels.echannels">
+            <td>{{echannel.id}}</td>
+            <td>{{echannel.name}}</td>
+        </tr>
+        <tr>
+            <td>(+)Add E-channel</td>
+        </tr>
+    </table>
+
+    <component details="listEchannelsDelete_info"></component>
+    <component details="createEchannels_info"></component>
 
 
+    <hr>
+    <br>
+    <h1>Page: Create Case</h1>
+    <h1>Sub page: GLS</h1>
+    <hr>
+    <br>
+    <component details="GLS_info"></component>
+    <table>
+        <tr ng-repeat="structure in listGLS.GLS">
+            <td>{{structure.id}}</td>
+            <td>{{structure.name}}</td>
+        </tr>
+        <tr>
+            <td>(+)Add GLS Product</td>
+        </tr>
+    </table>
+
+    <component details="listGLSDelete_info"></component>
+    <component details="createGLS_info"></component>
 
 
 
