@@ -281,9 +281,12 @@
 
 	});
 
-	routeApp.directive("componentDirective", function () {
+	routeApp.directive("component", function () {
 	    return {
-	        restrict: "EA",
-	        templateUrl: '/templates/component-directive.html'
+	        restrict: "E",
+	        scope: {
+	            component: '=details'
+	        },
+	        templateUrl: './templates/component-directive.html'
 	    };
 	});
