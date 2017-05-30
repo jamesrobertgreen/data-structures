@@ -137,7 +137,7 @@
     <h4>Example:</h4>
     <pre>{{displayJSON(listAccounts)}}</pre>
     <table>
-        <tr ng-repeat="account in listAccounts">
+        <tr ng-repeat="account in listAccounts.accounts">
             <td>{{account.accountNo}}</td>
             <td>{{account.name}}</td>
             <td>{{account.accountCountry}}</td>
@@ -148,16 +148,14 @@
         </tr>
     </table>
     <p>Notes:</p>
-    <h1>Page: Create Case</h1>
-    <h1>Sub page: Accounts</h1>
     <hr>
     <br>
     <h2>The list of accounts has a delete icon. It will need to update the list too</h2>
     <h4>accountList component remove - DELETE /cases/{caseID}/products/{productId}</h4>
     <h4>Parameters: none </h4>
     <h4>Return: {}</h4>
-    <hr>
-    <br>
+    <h1>Page: Create Case</h1>
+    <h1>Sub page: Accounts</h1>
     <hr>
     <br>
     <h2>Component Name: createAccount</h2>
