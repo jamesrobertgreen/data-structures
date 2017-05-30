@@ -100,6 +100,40 @@
 	    };
 
 
+	    $scope.createEntity_input = {
+	        entity: {
+	            "registeredName": "Entity Name",
+	            "countryOfIncorporation": "France",
+	            "incorporationNumber": "01534",
+	            "dateOfIncorporation": "28/11/1983",
+	            "taxNumber": "53523",
+	            "corporateStatus": "status",
+	            "businessSegment": "CMB",
+	            "GRID": "111111"
+	        }
+	    };
+	    /*        
+	            companyDetails
+	    ><registeredName
+	    >E1_Sample_SIT_Test</registeredName
+	    ><newRegisteredName
+	    >E1_Sample_SIT_Test</newRegisteredName
+	    ><CustomerEntityPackNo
+	    >05052016-00045_1</CustomerEntityPackNo
+	    ><countryOfIncorporation
+	    >Aland Islands</countryOfIncorporation
+	    ><incorporationNumber
+	    /><dateOfIncorporation
+	    /><taxNumber
+	    /><nEditableRecord
+	    /><corporateStatus
+	    />
+
+	    */
+	    $scope.creatEntity_output = {
+	        "entityId": "0012"
+	    };
+
 
 	    $scope.entityList = {
 	        "entities": [{
@@ -163,5 +197,23 @@
 	                        }]
 	                    }
 	                ]
-	    }
+	    };
+
+	    $scope.listAccounts = {
+	        "accounts": [{
+	                "accountId": "00112",
+	                "accountName": "UK salaries account",
+	                "accountCountry": "UK",
+	                "accountCurrency": "GBP"
+	            },
+	            {
+	                "accountId": "00114",
+	                "accountName": "France Receivables",
+	                "accountCountry": "FR",
+	                "accountCurrency": "EUR"
+	            }
+	        ]
+	    };
+
+
 	});

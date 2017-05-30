@@ -53,7 +53,8 @@
     <h1>Sub page: Entities</h1>
     <hr>
     <br>
-    <p class="todo">We will need to get the case details on page init, as we might be resuming a case, i.e. selecting an existing case from the case list</p>
+    <p class="todo">We will need to get the case details on page init, as we might be resuming a case, i.e. selecting an existing case from the case list.</p>
+    <p class="todo">The search entities component should not be worked on yet it is low priority.</p>
     <h2>Component Name: searchEntities</h2>
     <h2>Description: CI is brought to the entities section</h2>
     <img src="images/searchEntities.png">
@@ -78,20 +79,9 @@
     <h2>Description: The CI selects create entity as the entity is not in the list</h2>
     <img src="images/searchEntities_createEntity.png">
     <h4>Endpoint: This will need to open a new modal, pre-filled with the text entered on the search as the new entity name</h4>
-    <h4>Parameters: TBC. This will be decided at a later date as it doesn't require the experience API.</h4>s
+    <h4>Parameters: TBC. This will be decided at a later date as it doesn't require the experience API.</h4>
     <hr>
     <br>
-    <h2>Component Name: createEntity</h2>
-    <h2>Description: The CI selected to create a new entity and is presented with a modal containing the entity form</h2>
-    <img src="images/createEntity.png">
-    <h4>Endpoint: POST /{caseId}/entities</h4>
-    <h4>Parameters: list of caseids to associate with case.</h4>
-    <h4>Example:</h4>
-    <pre>{{displayJSON(searchEntities_addSelected)}}</pre>
-    <h4>Return:caseID added</h4>
-    <h4>Example:{}</h4>
-    <br>
-    <hr>
     <h2>Component Name: entityConflicts</h2>
     <h2>List of entities that will be retrieved when entering the page (for resuming) and updated if an entity is deleted or if an entity is added.</h2>
     <h4>GET /{caseId}/conflicts</h4>
@@ -118,6 +108,74 @@
     <h4>Return: {}</h4>
     <hr>
     <br>
+    <h2>Component Name: createEntity</h2>
+    <h2>Description: The CI selected to create a new entity and is presented with a modal containing the entity form</h2>
+    <img src="images/createEntity.png">
+    <h4>Endpoint: POST /{caseId}/entities</h4>
+    <h4>Parameters: details of the entity to add</h4>
+    <h4>Example:</h4>
+    <pre>{{displayJSON(createEntity_input)}}</pre>
+    <h4>Return: entityId that was added (might not be needed but could be handy)</h4>
+    <h4>{{displayJSON(creatEntity_output)}}</h4>
+    <h4>Example:{}</h4>
+    <p>Notes: The GRID field seems to be new i.e. I couldn't see it in the example output/input pack XML that Alex shared with us. We will have to be careful of the names we use for these fields, as they need to map to the names used on the output pack.</p>
+    <hr>
+    <br>
+    
+    
+    
+    
+    
+    
+    
+    <h2>Component Name: listAccounts</h2>
+    <h2>Description: The CI added an account to the case, it is added to this list. Any changes to the accounts for a case e.g. delete are also reflected in this list</h2>
+    <img src="images/listAccounts.png">
+    <h4>Endpoint: GET /cases/{caseID}/products</h4>
+    <h4>Parameters: type = "accounts"</h4>
+    <h4>Return: list of accounts associated with the case</h4>
+    <h4>Example:</h4>
+    <pre>{{displayJSON(listAccounts)}}</pre>
+    <table>
+        <tr ng-repeat="account in listAccounts">
+            <td>{{account.accountId}}</td>
+            <td>{{account.accountName}}</td>
+            <td>{{account.accountCountry}}</td>
+            <td>{{account.accountCurrency}}</td>
+        </tr>
+        <tr>
+        <td>(+)Add new account</td>
+        </tr>
+    </table>
+    <p>Notes:</p>
+    <h1>Page: Create Case</h1>
+    <h1>Sub page: Accounts</h1>
+    <hr>
+    <br>
+    <h2>Component Name: createAccount</h2>
+    <h2>Description: The CI selected to create a new account and is presented with a modal containing the account form</h2>
+    <img src="images/createAccount.png">
+    <h4>Endpoint: POST /cases/{caseID}/products/{entityId}</h4>
+    <h4>Parameters: type="account" + details of the account to add</h4>
+    <h4>Example:</h4>
+    <pre>{{displayJSON(createAccount_input)}}</pre>
+    <h4>Return: accountId that was added (might not be needed but could be handy)</h4>
+    <h4>{{displayJSON(creatAccount_output)}}</h4>
+    <h4>Example:{}</h4>
+    <p>Notes:</p>
+    <p class="todo">Add details of DELETE functionality</p>
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <h2>The user clicks on the entity profile and is redirected to the CREATE CASE - Entity Details</h2>
     <h1>CASE DETAILS - Entity Details</h1>
     <h4>entityDetails component - GET /entities/{entityId} ??? Possibly needs adding to api?</h4>
