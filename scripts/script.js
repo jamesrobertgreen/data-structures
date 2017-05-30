@@ -267,8 +267,200 @@
 	        "returns": "accountId that was added (might not be needed but could be handy)",
 	        "returnsExample": $scope.displayJSON($scope.createAccount_output),
 	        "notes": "I am not certain about the names of the fields for this, we will need to decide make sure these are consistent with what is on the output pack as we don't want to have to map new field names to the existing output pack."
-	    }
+	    };
 
+
+        // List Accounts
+	    $scope.listAccounts = {
+	        "accounts": [{
+	                "accountNo": "00112",
+	                "name": "UK salaries account",
+	                "accountCountry": "UK",
+	                "currency": "GBP"
+	            },
+	            {
+	                "accountNo": "00114",
+	                "name": "France Receivables",
+	                "accountCountry": "FR",
+	                "currency": "EUR"
+	            }
+	        ]
+	    };
+	    $scope.listAccounts_info = {
+	        "name": "listAccounts",
+	        "description": "The CI added an account to the case, it is added to this list. Any changes to the accounts for a case e.g. delete are also reflected in this list",
+	        "image": "images/listAccounts.png",
+	        "endpoint": "GET /cases/{caseID}/products",
+	        "parameters": 'Select that we are adding an account',
+	        "parametersExample": 'type = "accounts"',
+	        "returns": "list of accounts associated with the case",
+	        "returnsExample": $scope.displayJSON($scope.listAccounts),
+	        "notes": ""
+	    };
+	    $scope.listAccountsDelete_info = {
+	        "name": "listAccounts - delete",
+	        "description": "the list of accounts has a delete icon. It will need to update the list too",
+	        "image": "???",
+	        "endpoint": "DELETE /cases/{caseID}/products/{productId}",
+	        "parameters": "none",
+	        "parametersExample": "none",
+	        "returns": "n/a",
+	        "returnsExample": "{}",
+	        "notes": ""
+	    };
+
+	    // Create Account
+	    $scope.createAccount_input = {
+	        "entityId": "001",
+	        "accountCountry": "UK",
+	        "resident": "Y",
+	        "type": "Business Cheque Account",
+	        "currency": "USD",
+	        "name": "Crocs footwear UK Ltd",
+	        "accountNo": "00513",
+	        "bankCode": "445",
+	        "name": "UK Business Cheque Account GBP"
+	    };
+	    $scope.createAccount_output = {
+	        "accountNo": "00513"
+	    };
+	    $scope.createAccount_info = {
+	        "name": "createAccount",
+	        "description": "The CI selected to create a new account and is presented with a modal containing the account form",
+	        "image": "images/createAccount.png",
+	        "endpoint": "POST /cases/{caseID}/products/{entityId}",
+	        "parameters": 'type="account" + details of the account to add',
+	        "parametersExample": $scope.displayJSON($scope.createAccount_input),
+	        "returns": "accountId that was added (might not be needed but could be handy)",
+	        "returnsExample": $scope.displayJSON($scope.createAccount_output),
+	        "notes": "I am not certain about the names of the fields for this, we will need to decide make sure these are consistent with what is on the output pack as we don't want to have to map new field names to the existing output pack."
+	    };
+        
+        
+        
+
+        
+        
+ 
+        // List EChannels
+	    $scope.listEChannels = {
+	        "echannels": [{
+	                "echannelId": "???",
+                    "name": "???",
+	            },
+	            {
+	                "echannelId": "???",
+	                "name": "???",
+
+	            }
+	        ]
+	    };
+	    $scope.listEChannels_info = {
+	        "name": "listEChannels",
+	        "description": "The CI added an echannel to the case, it is added to this list. Any changes to the echannels for a case e.g. delete are also reflected in this list",
+	        "image": "images/listEChannels.png",
+	        "endpoint": "GET /cases/{caseID}/products",
+	        "parameters": 'Select that we are adding an echannel',
+	        "parametersExample": 'type = "echannels"',
+	        "returns": "list of echannels associated with the case",
+	        "returnsExample": $scope.displayJSON($scope.listEChannels),
+	        "notes": ""
+	    };
+	    $scope.listEChannelsDelete_info = {
+	        "name": "listEChannels - delete",
+	        "description": "the list of echannels has a delete icon. It will need to update the list too",
+	        "image": "???",
+	        "endpoint": "DELETE /cases/{caseID}/products/{productId}",
+	        "parameters": "none",
+	        "parametersExample": "none",
+	        "returns": "n/a",
+	        "returnsExample": "{}",
+	        "notes": ""
+	    };
+
+	    // Create EChannel
+	    $scope.createEChannel_input = {
+	        "echannelId": "???",
+	        "name": "???"
+	    };
+	    $scope.createEChannel_output = {
+	        "echannelId": "???"
+	    };
+	    $scope.createEChannel_info = {
+	        "name": "createEChannel",
+	        "description": "The CI selected to create a new echannel and is presented with a modal containing the echannel form",
+	        "image": "images/createEChannel.png",
+	        "endpoint": "POST /cases/{caseID}/products/{entityId}",
+	        "parameters": 'type="echannel" + details of the echannel to add',
+	        "parametersExample": $scope.displayJSON($scope.createEChannel_input),
+	        "returns": "echannelId that was added (might not be needed but could be handy)",
+	        "returnsExample": $scope.displayJSON($scope.createEChannel_output),
+	        "notes": "I am not certain about the names of the fields for this, we will need to decide make sure these are consistent with what is on the output pack as we don't want to have to map new field names to the existing output pack."
+	    };
+        
+        
+        
+        
+        
+         
+        // List GLS
+	    $scope.listGLS = {
+	        "GLS": [{
+	                "GLSId": "???",
+                    "name": "???"
+	            },
+	            {
+	                "GLSId": "???",
+	                "name": "???"
+	            }
+	        ]
+	    };
+	    $scope.listGLS_info = {
+	        "name": "listGLS",
+	        "description": "The CI added an GLS to the case, it is added to this list. Any changes to the GLS for a case e.g. delete are also reflected in this list",
+	        "image": "images/listGLS.png",
+	        "endpoint": "GET /cases/{caseID}/products",
+	        "parameters": 'Select that we are adding an GLS',
+	        "parametersExample": 'type = "GLS"',
+	        "returns": "list of GLS associated with the case",
+	        "returnsExample": $scope.displayJSON($scope.listGLS),
+	        "notes": ""
+	    };
+	    $scope.listGLSDelete_info = {
+	        "name": "listGLS - delete",
+	        "description": "the list of GLS has a delete icon. It will need to update the list too",
+	        "image": "???",
+	        "endpoint": "DELETE /cases/{caseID}/products/{productId}",
+	        "parameters": "none",
+	        "parametersExample": "none",
+	        "returns": "n/a",
+	        "returnsExample": "{}",
+	        "notes": ""
+	    };
+
+	    // Create GLS
+	    $scope.createGLS_input = {
+	        "GLSId": "???",
+	        "name": "???"
+	    };
+	    $scope.createGLS_output = {
+	        "GLSId": "???"
+	    };
+	    $scope.createGLS_info = {
+	        "name": "createGLS",
+	        "description": "The CI selected to create a new GLS and is presented with a modal containing the GLS form",
+	        "image": "images/createGLS.png",
+	        "endpoint": "POST /cases/{caseID}/products/{entityId}",
+	        "parameters": 'type="GLS" + details of the GLS to add',
+	        "parametersExample": $scope.displayJSON($scope.createGLS_input),
+	        "returns": "GLSId that was added (might not be needed but could be handy)",
+	        "returnsExample": $scope.displayJSON($scope.createGLS_output),
+	        "notes": "I am not certain about the names of the fields for this, we will need to decide make sure these are consistent with what is on the output pack as we don't want to have to map new field names to the existing output pack."
+	    };
+        
+        
+        
+        
 	    /*
 	    $scope.listCaseDetails = {
 	        "name": "TEST TEST",
