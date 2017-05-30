@@ -3,7 +3,7 @@
 
 
 	    $scope.displayJSON = function (obj) {
-	        return JSON.stringify(obj, null, 4);
+	        return angular.toJson(obj,true);
 	    };
 	    $scope.listCases = {
 	        "cases": [{
@@ -79,15 +79,15 @@
 	    $scope.searchEntities = {
 	        "entities": [{
 	                "entityId": "123456",
-	                "entityName": "Crocs Footwear UK LTD"
+	                "registeredName": "Crocs Footwear UK LTD"
 	            }
 	            , {
 	                "entityId": "234567",
-	                "entityName": "Crocs Footwear France S.A"
+	                "registeredName": "Crocs Footwear France S.A"
 	            }
 	            , {
 	                "entityId": "456789",
-	                "entityName": "Crocs Fashion Spain S.A"
+	                "registeredName": "Crocs Fashion Spain S.A"
 	            }]
 	    };
 
@@ -201,18 +201,34 @@
 
 	    $scope.listAccounts = {
 	        "accounts": [{
-	                "accountId": "00112",
-	                "accountName": "UK salaries account",
+	                "accountNo": "00112",
+	                "name": "UK salaries account",
 	                "accountCountry": "UK",
-	                "accountCurrency": "GBP"
+	                "currency": "GBP"
 	            },
 	            {
-	                "accountId": "00114",
-	                "accountName": "France Receivables",
+	                "accountNo": "00114",
+	                "name": "France Receivables",
 	                "accountCountry": "FR",
-	                "accountCurrency": "EUR"
+	                "currency": "EUR"
 	            }
 	        ]
+	    };
+
+	    $scope.createAccount_input = {
+            "entityId":"001",
+	        "accountCountry": "UK",
+            "resident": "Y",
+            "type": "Business Cheque Account",
+            "currency": "USD",
+            "name":"Crocs footwear UK Ltd",
+            "accountNo":"00513",
+            "bankCode":"445",
+            "name":"UK Business Cheque Account GBP"
+	    };
+
+	    $scope.createAccount_output = {
+	        "accountNo": "00513"
 	    };
 
 
