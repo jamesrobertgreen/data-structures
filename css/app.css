@@ -13,3 +13,7 @@ table, th, td {
 pre{
    font-style: italic;
 }
+
+p.todo{
+    color: red;
+}
