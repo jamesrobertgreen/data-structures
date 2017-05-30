@@ -1,10 +1,21 @@
 	var routeApp = angular.module('dataStructureApp', []);
+	routeApp.directive("componentDirective", function () {
+	    return {
+	        restrict: "A",
+	        scope: {
+	            customerInfo: '=details'
+	        },
+	        templateUrl: 'templates/component-directive.html'
+	    };
+
+	));
 	routeApp.controller('mainController', function ($scope) {
 
-
 	    $scope.displayJSON = function (obj) {
-	        return angular.toJson(obj,true);
+	        return angular.toJson(obj, true);
 	    };
+        
+        
 	    $scope.listCases = {
 	        "cases": [{
 	            "caseId": "001",
@@ -216,15 +227,15 @@
 	    };
 
 	    $scope.createAccount_input = {
-            "entityId":"001",
+	        "entityId": "001",
 	        "accountCountry": "UK",
-            "resident": "Y",
-            "type": "Business Cheque Account",
-            "currency": "USD",
-            "name":"Crocs footwear UK Ltd",
-            "accountNo":"00513",
-            "bankCode":"445",
-            "name":"UK Business Cheque Account GBP"
+	        "resident": "Y",
+	        "type": "Business Cheque Account",
+	        "currency": "USD",
+	        "name": "Crocs footwear UK Ltd",
+	        "accountNo": "00513",
+	        "bankCode": "445",
+	        "name": "UK Business Cheque Account GBP"
 	    };
 
 	    $scope.createAccount_output = {
