@@ -1,5 +1,8 @@
 	var routeApp = angular.module('dataStructureApp', []);
 	routeApp.controller('mainController', function ($scope) {
+        $scope.displayJSON = function(obj){
+            return JSON.stringify(obj, null, 4);
+        };
 	    $scope.listCases = {
 	        "cases": [{
 	            "caseId": "001"
@@ -26,6 +29,8 @@
 	           }]
 	       }]
 	    };
+        $scope.listCasesStr = JSON.stringify($scope.listCases, null, 4);
+        
 	    // if we have the above, then it will be fine *as long as we  only receive one entity per case*....as otherwise I will have to go through and check who is the
 	    // owning entity in the list of products to match them up on the UI.
 	    // some other considerations if we go down this route:
@@ -68,6 +73,7 @@
 	    $scope.createCase = {
 	        "caseId": "005"
 	    };
+        
 	    $scope.searchEntities = {
 	        "entities": [{
 	                "entityId": "123456"
@@ -82,6 +88,8 @@
 	                , "entityName": "Crocs Fashion Spain S.A"
 	            }]
 	    };
+        $scope.searchEntitiesStr = JSON.stringify($scope.createCase, null, 4);
+        
 	    $scope.entityList = {
 	        "entities": [{
 	                "entityId": "123456"

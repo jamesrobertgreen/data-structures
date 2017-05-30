@@ -9,12 +9,14 @@
 
 <body ng-controller="mainController">
     <h1>CREATE CASE</h1>
-    <h2>CI Logs in and is taken to the case list</h2>
-    <h4>list cases component: GET /cases </h4>
+    <h2>Name: listCases</h2>
+    <h2>Description: CI/Customer Logs in and is presented with a list of cases they have access to</h2>
+    <img src="images/listCases.png">
+    <h4>Endpoint: GET /cases </h4>
     <h4>Parameters: none </h4>
     <h4>Returns: JSON array of cases</h4>
-    <p>Notes: Access to cases and customer/ci differences determined by the API/auth token </p>
     <h4>Example:</h4>
+    <pre>{{displayJSON(listCases)}}</pre>
     <table>
         <tr ng-repeat="case in listCases.cases">
             <td>{{case.caseId}}</td>
@@ -26,6 +28,9 @@
             </td>
         </tr>
     </table>
+    <h4>Notes:</h4>
+    <p>Access to cases and customer/ci differences determined by the API/auth token </p>
+    <p>Associated child cases will be sent along with the parent.</p>
     <hr>
     <br>
     <h2>CI selects create case</h2>
