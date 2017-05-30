@@ -1,4 +1,4 @@
-	var routeApp = angular.module('dataStructureApp', ['ngSanitize']);
+	var routeApp = angular.module('dataStructureApp', []);
 
 	routeApp.controller('mainController', function ($scope) {
 
@@ -65,19 +65,7 @@
 	        "endpoint": "",
 	        "parameters": "",
 	        "returns": "",
-            "returnJSON":$scope.listCases,
 	        "returnsExample": $scope.displayJSON($scope.listCases),
-	        "returnsOtherExample": '    <table> ' +
-	            '<tr ng-repeat="case in returnJSON.cases">' +
-	            '<td>{{case.caseId}}</td>' +
-	            '<td>{{case.entities[0].entityName}}</td>' +
-	            '<td>' +
-	            '<ul ng-repeat="product in case.products">' +
-	            '<li>{{product.productDescription}}</li>' +
-	            '</ul>' +
-	            '</td>' +
-	            '</tr>' +
-	            '</table>',
 	        "notes": ""
 	    };
 
