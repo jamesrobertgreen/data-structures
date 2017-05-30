@@ -31,27 +31,7 @@
 	        "notes": ""
 	    };
         */
-	    $scope.listCaseDetails = {
-	        "name": "TEST TEST",
-	        "description": "",
-	        "image": "",
-	        "endpoint": "",
-	        "parameters": "",
-	        "returns": "",
-	        "returnsExample": $scope.listCases,
-	        "returnsOtherExample": '    <table> ' +
-	            '<tr ng-repeat="case in listCases.cases">' +
-	            '<td>{{case.caseId}}</td>' +
-	            '<td>{{case.entities[0].entityName}}</td>' +
-	            '<td>' +
-	            '<ul ng-repeat="product in case.products">' +
-	            '<li>{{product.productDescription}}</li>' +
-	            '</ul>' +
-	            '</td>' +
-	            '</tr>' +
-	            '</table>',
-	        "notes": ""
-	    };
+
 	    $scope.listCases = {
 	        "cases": [{
 	            "caseId": "001",
@@ -78,7 +58,17 @@
 	           }]
 	       }]
 	    };
-
+	    $scope.listCaseDetails = {
+	        "name": "TEST TEST",
+	        "description": "",
+	        "image": "",
+	        "endpoint": "",
+	        "parameters": "",
+	        "returns": "",
+	        "returnsExample": $scope.displayJSON($scope.listCases),
+	        "returnsOtherExample": '<h1>test</h1>',
+	        "notes": ""
+	    };
 
 	    // if we have the above, then it will be fine *as long as we  only receive one entity per case*....as otherwise I will have to go through and check who is the
 	    // owning entity in the list of products to match them up on the UI.
