@@ -1,11 +1,11 @@
 <div class="component-details">
-    <h2>Component Name: {{componentName}}</h2>
-    <h2>Description: {{componentDescription}}</h2>
-    <img ng-src="{{componentImage}}">
-    <h4>Endpoint: {{componentEndpoint}}</h4>
-    <h4>Parameters: {{componentParameter}}</h4>
-    <h4>Returns: {{componentReturns}}}</h4>
+    <h2>Component Name: {{component.name}}</h2>
+    <h2>Description: {{component.description}}</h2>
+    <img ng-src="{{component.image}}">
+    <h4>Endpoint: {{component.endpoint}}</h4>
+    <h4>Parameters: {{component.parameters}}</h4>
+    <h4>Returns: {{component.returns}}</h4>
     <h4>Example:</h4>
-    <pre>{{displayJSON({{componentReturnsExample}})}}</pre> {{componentReturnsOtherExample}}
-    <h4>Notes:{{componentNotes}}</h4>
+    <pre>{{displayJSON({{component.returnsExample}})}}</pre> {{component.returnsOtherExample}}
+    <h4>Notes:{{component.notes}}</h4>
 </div>

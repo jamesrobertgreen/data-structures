@@ -1,21 +1,57 @@
 	var routeApp = angular.module('dataStructureApp', []);
-	routeApp.directive("componentDirective", function () {
-	    return {
-	        restrict: "A",
-	        scope: {
-	            customerInfo: '=details'
-	        },
-	        templateUrl: 'templates/component-directive.html'
-	    };
 
-	));
 	routeApp.controller('mainController', function ($scope) {
 
 	    $scope.displayJSON = function (obj) {
 	        return angular.toJson(obj, true);
 	    };
-        
-        
+
+
+	    /*
+	    $scope.listCaseDetails = {
+	        "name": "TEST TEST",
+	        "description": "",
+	        "image": "",
+	        "endpoint": "",
+	        "parameters": "",
+	        "returns": "",
+	        "returnsExample": $scope.listCases,
+	        "returnsOtherExample":
+            '    <table> ' +
+        '<tr ng-repeat="case in listCases.cases">' +
+            '<td>{{case.caseId}}</td>' +
+            '<td>{{case.entities[0].entityName}}</td>' +
+            '<td>' +
+                '<ul ng-repeat="product in case.products">' +
+                    '<li>{{product.productDescription}}</li>' +
+                '</ul>' +
+            '</td>' +
+        '</tr>' +
+    '</table>',
+	        "notes": ""
+	    };
+        */
+	    $scope.listCaseDetails = {
+	        "name": "TEST TEST",
+	        "description": "",
+	        "image": "",
+	        "endpoint": "",
+	        "parameters": "",
+	        "returns": "",
+	        "returnsExample": $scope.listCases,
+	        "returnsOtherExample": '    <table> ' +
+	            '<tr ng-repeat="case in listCases.cases">' +
+	            '<td>{{case.caseId}}</td>' +
+	            '<td>{{case.entities[0].entityName}}</td>' +
+	            '<td>' +
+	            '<ul ng-repeat="product in case.products">' +
+	            '<li>{{product.productDescription}}</li>' +
+	            '</ul>' +
+	            '</td>' +
+	            '</tr>' +
+	            '</table>',
+	        "notes": ""
+	    };
 	    $scope.listCases = {
 	        "cases": [{
 	            "caseId": "001",
@@ -243,4 +279,11 @@
 	    };
 
 
+	});
+
+	routeApp.directive("componentDirective", function () {
+	    return {
+	        restrict: "EA",
+	        templateUrl: '/templates/component-directive.html'
+	    };
 	});
