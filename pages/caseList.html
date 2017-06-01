@@ -1,0 +1,18 @@
+<h1>Page: Case List</h1>
+
+<br>
+<hr>
+<component details="listCase_info"> </component>
+<table>
+    <tr ng-repeat="case in listCases.cases">
+        <td>{{case.caseId}}</td>
+        <td>{{case.entities[0].entityName}}</td>
+        <td>
+            <ul ng-repeat="product in case.products">
+                <li>{{product.productDescription}}</li>
+            </ul>
+        </td>
+    </tr>
+</table>
+
+<component details="createCase_info"> </component>

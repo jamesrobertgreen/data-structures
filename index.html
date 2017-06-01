@@ -3,171 +3,18 @@
 
 <head>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
-
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
     <link rel="stylesheet" href="css/app.css">
-    <script src="scripts/script.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/mainController.js"></script>
+    <script src="scripts/controllers/caseListController.js"></script>
+    <script src="scripts/controllers/createCaseController.js"></script>
 </head>
 
 <body ng-controller="mainController">
-    <h1>Page: Case List</h1>
-    <br>
-    <hr>
-    <component details="listCase_info"> </component>
-    <table>
-        <tr ng-repeat="case in listCases.cases">
-            <td>{{case.caseId}}</td>
-            <td>{{case.entities[0].entityName}}</td>
-            <td>
-                <ul ng-repeat="product in case.products">
-                    <li>{{product.productDescription}}</li>
-                </ul>
-            </td>
-        </tr>
-    </table>
-
-    <component details="createCase_info"> </component>
-
-    <hr>
-    <br>
-    <h1>Page: Create Case</h1>
-    <h1>Sub page: Entities</h1>
-    <hr>
-    <br>
-    <p class="todo">We will need to get the case details on page init, as we might be resuming a case, i.e. selecting an existing case from the case list.</p>
-    <p class="todo">The search entities component should not be worked on yet it is low priority.</p>
-
-
-    <component details="searchEntities_info"> </component>
-    <ul ng-repeat="entity in searchEntities.entities">
-        <li>{{entity.entityId}} {{entity.entityName}}</li>
-    </ul>
-
-    <component details="searchEntities_addSelected_info"></component>
-    <component details="searchEntities_createEntity_info"></component>
-    <component details="entityList_info"></component>
-    <table>
-        <tr ng-repeat="entity in entityList.entities">
-            <td>{{entity.entityId}}</td>
-            <td>{{entity.entityName}}</td>
-            <td>
-                <ul ng-repeat="conflict in entity.conflicts">
-                    <li>{{conflict.caseId}}</li>
-                </ul>
-            </td>
-        </tr>
-    </table>
-    <component details="entityListDelete_info"></component>
-    <component details="createEntity_info"></component>
-
-    <hr>
-    <br>
-    <h1>Page: Create Case</h1>
-    <h1>Sub page: Accounts</h1>
-    <hr>
-    <br>
-    <component details="listAccounts_info"></component>
-    <table>
-        <tr ng-repeat="account in listAccounts.accounts">
-            <td>{{account.accountNo}}</td>
-            <td>{{account.name}}</td>
-            <td>{{account.accountCountry}}</td>
-            <td>{{account.currency}}</td>
-        </tr>
-        <tr>
-            <td>(+)Add new account</td>
-        </tr>
-    </table>
-
-    <component details="listAccountsDelete_info"></component>
-    <component details="createAccount_info"></component>
-
-
-
-    <hr>
-    <br>
-    <h1>Page: Create Case</h1>
-    <h1>Sub page: EChannels</h1>
-    <hr>
-    <br>
-    <component details="listEChannels_info"></component>
-    <table>
-        <tr ng-repeat="echannel in listEchannels.echannels">
-            <td>{{echannel.id}}</td>
-            <td>{{echannel.name}}</td>
-        </tr>
-        <tr>
-            <td>(+)Add E-channel</td>
-        </tr>
-    </table>
-
-    <component details="listEChannelsDelete_info"></component>
-    <component details="createEChannel_info"></component>
-
-
-    <hr>
-    <br>
-    <h1>Page: Create Case</h1>
-    <h1>Sub page: GLS</h1>
-    <hr>
-    <br>
-    <component details="listGLS_info"></component>
-    <table>
-        <tr ng-repeat="structure in listGLS.GLS">
-            <td>{{structure.id}}</td>
-            <td>{{structure.name}}</td>
-        </tr>
-        <tr>
-            <td>(+)Add GLS Product</td>
-        </tr>
-    </table>
-
-    <component details="listGLSDelete_info"></component>
-    <component details="createGLS_info"></component>
-
-
-
-
-
-
-
-
-    <h2>The user clicks on the entity profile and is redirected to the CREATE CASE - Entity Details</h2>
-    <h1>CASE DETAILS - Entity Details</h1>
-    <h4>entityDetails component - GET /entities/{entityId} ??? Possibly needs adding to api?</h4>
-    <h4>Parameters: none </h4>
-    <h4>Return: JSON object</h4>
-    <h4>Example:</h4>
-    <p>{{entityDetails.entityName}}</p>
-    <p>{{entityDetails.entityAddress}}</p>
-    <hr>
-    <br>
-
-
-    <h4>Gdocs History component - GET /entities/{entityId}/documents</h4>
-    <h4>Parameters: status=signed </h4>
-    <h4>Return:JSON array of objects</h4>
-    <h4>Example:</h4>
-    <table>
-        <tr ng-repeat="case in gdocsHistory.cases">
-            <td>{{case.service}}</td>
-            <td>{{case.country}}</td>
-            <td>{{case.date}}</td>
-            <td>{{case.outputPackRef}}</td>
-            <td>
-                <ul ng-repeat="document in case.documents">
-                    <li>{{document.documentName}}</li>
-                </ul>
-            </td>
-        </tr>
-    </table>
-    <hr>
-    <br>
-    <h4>GLS structures component - GET /entities/{entityId}/products</h4>
-    <h4>Parameters:type=GLS</h4>
-    <h4>Return:JSON array of objects</h4>
-    <h4>Example:</h4>
-    <p>TBC</p>
-    <hr>
-    <br> </body>
+    <a href="#/createCase">Create Case</a>
+    <a href="#/caseList">Case List</a>
+    <div ng-view></div>
+</body>
 
 </html>
