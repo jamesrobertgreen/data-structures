@@ -1,0 +1,17 @@
+<h1>Page: Create Case</h1>
+<h1>Sub page: GLS</h1>
+<hr>
+<br>
+<component details="listGLS_info"></component>
+<table>
+    <tr ng-repeat="structure in listGLS.GLS">
+        <td>{{structure.id}}</td>
+        <td>{{structure.name}}</td>
+    </tr>
+    <tr>
+        <td>(+)Add GLS Product</td>
+    </tr>
+</table>
+
+<component details="listGLSDelete_info"></component>
+<component details="createGLS_info"></component>

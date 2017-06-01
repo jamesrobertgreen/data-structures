@@ -1,0 +1,21 @@
+<h1>Page: Create Case</h1>
+<h1>Sub page: Accounts</h1>
+<hr>
+<br>
+<component details="listAccounts_info"></component>
+<table>
+    <tr ng-repeat="account in listAccounts.accounts">
+        <td>{{account.accountNo}}</td>
+        <td>{{account.name}}</td>
+        <td>{{account.accountCountry}}</td>
+        <td>{{account.currency}}</td>
+    </tr>
+    <tr>
+        <td>(+)Add new account</td>
+    </tr>
+</table>
+
+<component details="listAccountsDelete_info"></component>
+<component details="createAccount_info"></component>
+
+

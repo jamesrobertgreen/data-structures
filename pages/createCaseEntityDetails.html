@@ -1,0 +1,39 @@
+<h1>CASE DETAILS - Entity Details</h1>
+<hr>
+<br>
+<h4>entityDetails component - GET /entities/{entityId} ??? Possibly needs adding to api?</h4>
+<h4>Parameters: none </h4>
+<h4>Return: JSON object</h4>
+<h4>Example:</h4>
+<p>{{entityDetails.entityName}}</p>
+<p>{{entityDetails.entityAddress}}</p>
+<hr>
+<br>
+
+
+<h4>Gdocs History component - GET /entities/{entityId}/documents</h4>
+<h4>Parameters: status=signed </h4>
+<h4>Return:JSON array of objects</h4>
+<h4>Example:</h4>
+<table>
+    <tr ng-repeat="case in gdocsHistory.cases">
+        <td>{{case.service}}</td>
+        <td>{{case.country}}</td>
+        <td>{{case.date}}</td>
+        <td>{{case.outputPackRef}}</td>
+        <td>
+            <ul ng-repeat="document in case.documents">
+                <li>{{document.documentName}}</li>
+            </ul>
+        </td>
+    </tr>
+</table>
+<hr>
+<br>
+<h4>GLS structures component - GET /entities/{entityId}/products</h4>
+<h4>Parameters:type=GLS</h4>
+<h4>Return:JSON array of objects</h4>
+<h4>Example:</h4>
+<p>TBC</p>
+<hr>
+<br>

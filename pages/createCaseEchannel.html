@@ -1,0 +1,20 @@
+
+<hr>
+<br>
+<h1>Page: Create Case</h1>
+<h1>Sub page: EChannels</h1>
+<hr>
+<br>
+<component details="listEChannels_info"></component>
+<table>
+    <tr ng-repeat="echannel in listEchannels.echannels">
+        <td>{{echannel.id}}</td>
+        <td>{{echannel.name}}</td>
+    </tr>
+    <tr>
+        <td>(+)Add E-channel</td>
+    </tr>
+</table>
+
+<component details="listEChannelsDelete_info"></component>
+<component details="createEChannel_info"></component>

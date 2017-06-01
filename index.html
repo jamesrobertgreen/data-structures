@@ -8,12 +8,22 @@
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/mainController.js"></script>
     <script src="scripts/controllers/caseListController.js"></script>
-    <script src="scripts/controllers/createCaseController.js"></script>
+    <script src="scripts/controllers/createCaseAccountController.js"></script>
+    <script src="scripts/controllers/createCaseEchannelController.js"></script>
+    <script src="scripts/controllers/createCaseEntityController.js"></script>
+    <script src="scripts/controllers/createCaseEntityDetailsController.js"></script>
+    <script src="scripts/controllers/createCaseGLSController.js"></script>
 </head>
 
 <body ng-controller="mainController">
-    <a href="#/createCase">Create Case</a>
-    <a href="#/caseList">Case List</a>
+    <ul>
+        <li><a href="#/caseList">Case List</a></li>
+        <li><a href="#/createCaseEntity">Create Case - Entities</a></li>
+        <li><a href="#/createCaseEntityDetails">Create Case - Entity Details</a></li>
+        <li><a href="#/createCaseAccount">Create Case - Accounts</a></li>
+        <li><a href="#/createCaseEchannel">Create Case - Echannels</a></li>
+        <li><a href="#/createCaseGLS">Create Case - GLS</a></li>
+    </ul>
     <div ng-view></div>
 </body>
 
